@@ -46,3 +46,12 @@ There is no interesting directory
 Visiting `/weighted-grade` , this may be an interesting page
 
 ![image](https://github.com/L43371/Write-up/assets/129752764/6115194d-2acf-46e6-9f63-5e633c54a133)
+
+Intercepting the traffic using Caido
+
+![image](https://github.com/L43371/Write-up/assets/129752764/f38d12c6-26cc-428d-861c-5794394b57e4)
+
+## SSTI attack
+
+![image](https://github.com/L43371/Write-up/assets/129752764/e7f37447-34e7-4597-8872-7feb8a0a6868)
+
